@@ -35,6 +35,30 @@ public class Factorial {
 
 		//YOUR CODE STARTS HERE
 
+        // Error message to be output if input is invalid
+        String errorMessage = "Invalid entry. Please enter an integer between 1 and 10, inclusive.";
+
+        // attempt to capture user input:
+
+        try {
+            String numInputString = scanner.nextLine(); // consumes '\n' token in input
+            // attempt to parse as int:
+            num = Integer.parseInt(numInputString);
+
+            // validate input in range (1-10)
+            if (num >= 1 && num <= 10) {
+                // return valid num
+                return num;
+            }
+            else {
+                // input invalid
+                this.printStream.print(errorMessage);
+            }
+        } catch (NumberFormatException e) {
+            this.printStream.print(errorMessage);
+        }
+
+        // exception handled or invalid input was entered, return -1
 		return -1;
 
 		//YOUR CODE ENDS HERE
